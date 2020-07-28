@@ -1,0 +1,42 @@
+<app-layout></app-layout>
+
+<section class="banner-img">
+    <div class="container box-container">
+        <div class="row">
+            <div class="col-md-12" style="text-align: center; width: 100%;" id="reports">
+                <h2 class="center-block">Lista Completa</h2>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-12 style" style="text-align: center">
+                <table class="table table-bordered table-sm table-striped table-light table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Renavam</th>
+                            <th>Placa</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Proprietário</th>
+                            <th>Cor</th>
+                            <th>Alienado</th>
+                            <th>Sinistros</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let car of service.list" routerLink="/cars/{{car._id}}">
+                            <td>{{ car._id }}</td>
+                            <td>{{ car._placa }}</td>
+                            <td>{{ car._marca }}</td>
+                            <td>{{ car._modelo }}</td>
+                            <td>{{ car._proprietario }}</td>
+                            <td>{{ car._cor }}</td>
+                            <td>{{ (car._alienado) ? 'SIM' : 'NÃO' }}</td>
+                            <td>{{ car._sinistros.length }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>

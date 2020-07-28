@@ -1,0 +1,60 @@
+<app-layout></app-layout>
+<section class="banner5-img">
+    <div class="container box-container3">
+        <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+                <h3 class="center-block">Histórico de Operações de Dados</h3>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-md-12">
+                <table class="table table-bordered table-sm table-striped table-dark table-hover">
+                    <thead class="thead-dark" style="text-align: center;">
+                        <tr>
+                            <th>Transação no Blockchain</th>
+                            <th>Usuário</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align: center;">
+                        <tr *ngFor="let item of dataRetorno">
+                            <td (click) = "getOneParticipant(item.value._assetOwner)">{{ item.txId }}</td>
+                            <td (click) = "getOneParticipant(item.value._assetOwner)">{{ item.value._assetOwner }}</td>
+                            <td (click) = "getOneParticipant(item.value._assetOwner)">{{ item.datetx }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br> <br>
+        <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+                <h3 class="center-block">Usuários da Porto Seguro no Blockchain</h3>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-md-12">
+                <table class="table table-bordered table-sm table-striped table-dark table-hover">
+                    <thead class="thead-dark" style="text-align: center;">
+                        <tr>
+                            <th>Usuário</th>
+                            <th>Identidade/ Área</th>
+                            <th>Biometria Digital</th>
+                            <th>Status</th>
+                            <th>Provider</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align: center;">
+                        <tr>
+                            <td>{{ dataParticipant._id}}</td>
+                            <td>{{ dataParticipant._name}}</td>
+                            <td>{{ identidades[0].fingerprint}}</td>
+                            <td>{{ identidades[0].status}}</td>
+                            <td>{{ dataParticipant._msp }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

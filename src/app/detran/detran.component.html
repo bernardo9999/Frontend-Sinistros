@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Detran</title>
+  <!-- <link rel="stylesheet" href="./flexboxgrid.css"> -->
+</head>
+
+<body>
+
+  <!-- BANNER-->
+  <section id="banner">
+      <div class="row">
+        <!-- <div class="row center-xs center-sm center-md center-lg middle-xs middle-sm middle-md middle-lg"> -->
+        <img src="../../assets/img/detran/fundo_topo.jpg" alt="">
+        <!-- <img class="gov col-xs-12 col-sm-3 col-md-3 col-lg-3" src="../../assets/img/detran/logo_governo_parte_superior.png" alt="">
+        <img class="detran col-xs-12 col-sm-3 col-md-3 col-lg-3" src="../../assets/img/detran/detran_logo.png" alt=""> -->
+        <img class="gov" src="../../assets/img/detran/logo_governo_parte_superior.png" alt="">
+        <img class="detran" src="../../assets/img/detran/detran_logo.png" alt="">
+      </div>
+  </section>
+  <!-- HEADER -->
+
+  <header id="main-header">
+    <div class="container">
+      <div class="row end-sm end-md end-lg center-xs middle-xs middle-sm middle-md middle-lg">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <nav id="navbar">
+            <ul>
+              <li><a href="../../welcome/" routerlink="/welcome">Portal</a></li>
+              <li class="current"><a href="../detran/" routerlink="/detran">Veículo</a></li>
+              <li><a>infrações</a></li>
+              <li><a>habilitação</a></li>
+              <li><a>identificação civil</a></li>
+              <li><a>educação</a></li>
+              <li><a>transparência</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUBHEADER -->
+  <section id="subheader">
+    <div class="container">
+      <div class="row center-xs center-sm center-md center-lg">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h2>Gestão de Multas</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN PAGE -->
+  <section id="info">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+          <h4 class="center-block">Lista Completa</h4>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 5px;">
+        <div class="col-md-12 style" style="text-align: center">
+          <table class="table table-bordered table-sm table-striped table-light table-hover">
+            <thead class="thead-light">
+              <tr>
+                <th>Renavam</th>
+                <th>Placa</th>
+                <th>Estado</th>
+                <th>data</th>
+                <th>Valor</th>
+                <th>Realizar Pagamento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let multas of service.list">
+                <td>{{ multas._id }}</td>
+                <td>{{ multas._placa }}</td>
+                <td>{{ multas._estado }}</td>
+                <td>{{ multas._data }}</td>
+                <td>{{ multas._valor | number : '1.2' }}</td>
+                <td><button (click)="realizarPagamento(multas)" class="btn btn-sm btn-outline-primary">P</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- COMPANY -->
+  <section id="company">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center-xs center-sm center-md center-lg">
+          <hr>
+          <h2>DETRAN</h2>
+          <p>Teleatendimento apenas para casos urgentes, de segunda a sexta-feira, das 8h às 18h.</p>
+          <p>Telefones: 3460-4040 / 3460-4041 (região metropolitana) e 0800-0204040 / 0800-0204041 (interior)</p>
+          <p>Avenida Presidente Vargas, 817 - Centro, Rio de Janeiro - RJ | 20.071 - 004</p>
+          <p>Ouvidoria</p>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="main-footer">
+    <div class="container">
+      <div class="row center-xs center-sm center-md center-lg">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h4>Interchains</h4>
+          <ul>
+            <li><i class="fa fa-phone"></i> (21) 3251-1789 </li>
+            <li><i class="fa fa-envelope"></i> contato@interchains.et</li>
+            <li><i class="fa fa-map"></i> Rua Funchal 538, São Paulo SP</li>
+            <li><i class="fa fa-copyright"></i> Copyright &copy; 2020</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<div class="container box-container2">
+    <h3 class="display-7 text-center">Registrar/ Atualizar</h3>
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Renavam</label>
+                <input name="id" #id="ngModel" [(ngModel)]="service.formData._id" class="form-control" required>
+                <div class="validation-error" *ngIf="id.invalid && id.touched">Este campo é mandatório.</div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Placa</label>
+                <input name="placa" #placa="ngModel" [(ngModel)]="service.formData._placa" class="form-control"
+                    required>
+                <div class="validation-error" *ngIf="placa.invalid && placa.touched">Este campo é mandatório.</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Marca</label>
+                <input name="marca" #marca="ngModel" [(ngModel)]="service.formData._marca" class="form-control"
+                    required>
+                <div class="validation-error" *ngIf="marca.invalid && marca.touched">Este campo é mandatório.</div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Modelo</label>
+                <input name="modelo" #modelo="ngModel" [(ngModel)]="service.formData._modelo" class="form-control"
+                    required>
+                <div class="validation-error" *ngIf="modelo.invalid && modelo.touched">Este campo é mandatório.</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Cor</label>
+                <input name="cor" #cor="ngModel" [(ngModel)]="service.formData._cor" class="form-control" required>
+                <div class="validation-error" *ngIf="cor.invalid && cor.touched">Este campo é mandatório.</div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Proprietario</label>
+                <input name="proprietario" #proprietario="ngModel" [(ngModel)]="service.formData._proprietario"
+                    class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">CONFIRMAR</button>
+        </div>
+
+    </form>
+    <div>

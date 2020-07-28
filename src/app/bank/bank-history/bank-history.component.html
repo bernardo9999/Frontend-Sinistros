@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BanCom | Consulta</title>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header id="main-header">
+    <div class="container">
+      <div class="row end-sm end-md end-lg center-xs middle-xs middle-sm middle-md middle-lg">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+          <h2><span class="primary-text">Ban</span>Com</h2>
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+          <nav id="navbar">
+            <ul>
+              <li><a href="../../welcome/" routerlink="/welcome">Portal</a></li>
+              <li><a href="../bank-welcome/" routerlink="/bank-welcome">Principal</a></li>
+              <li><a a href="../bank-finances/" routerlink="/bank-finances">Relatório</a></li>
+              <li class="current"><a href="../bank-history/" routerlink="/bank-history">Histórico</a></li>
+              <li><a href="../bank-contact/" routerlink="/bank-contact">Contrato</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PAGE -->
+  <section id="page" class="services">
+    <div class="container"> 
+      <br>
+      <div class="row center-xs center-sm center-md center-lg">
+        <h2><span class="primary-text">Consulta</span> BlockChain</h2>
+        <!-- <section id="consulta">
+          <form>
+            <label for="renavam">Renavam</label><br>
+            <input type="text" name="id" value="id">
+            <br> <br>
+            <button type="submit" name="button" (click)="bankhistoryservice.getHistoryFinanceiro()">Consulta</button>
+          </form>
+        </section> -->
+
+        <br><br>
+        <ul>
+          <li>
+            <h3>Histórico Transacional</h3>
+            <table class="table table-bordered table-sm table-striped table-dark table-hover">
+              <thead class="thead-dark" style="text-align: center;">
+                <tr>
+                  <th>Transação no Blockchain</th>
+                  <th>Usuário</th>
+                  <th>Timestamp</th>
+                </tr>
+              </thead>
+              <tbody style="text-align: center;">
+                <tr *ngFor="let item of dataRetorno">
+                  <td (click)="getOneParticipantFinanceiro(item.value._assetOwner)">{{ item.txId }}</td>
+                  <td (click)="getOneParticipantFinanceiro(item.value._assetOwner)">{{ item.value._assetOwner }}</td>
+                  <td (click)="getOneParticipantFinanceiro(item.value._assetOwner)">{{ item.datetx }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+            <h3>Detalhes do Usuário</h3>
+            <table class="table table-bordered table-sm table-striped table-dark table-hover">
+              <thead class="thead-dark" style="text-align: center;">
+                <tr>
+                  <th>Usuário</th>
+                  <th>Identidade/ Área</th>
+                  <th>Biometria Digital</th>
+                  <th>Status</th>
+                  <th>Provider</th>
+                </tr>
+              </thead>
+              <tbody style="text-align: center;">
+                <tr>
+                  <td>{{ dataParticipant._id}}</td>
+                  <td>{{ dataParticipant._name}}</td>
+                  <td>{{ identidades[0].fingerprint}}</td>
+                  <td>{{ identidades[0].status}}</td>
+                  <td>{{ dataParticipant._msp }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY -->
+  <section id="company">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <h4>Contato</h4>
+          <ul>
+            <li><i class="fa fa-phone"></i> (21) 3251-1789 </li>
+            <li><i class="fa fa-envelope"></i> contato@interchains.et</li>
+            <li><i class="fa fa-map"></i> Rua Funchal 538, São Paulo SP</li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <h4>Sobre Nos</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <h4>Newsletter</h4>
+          <p>Lorem ipsum dolor sit amet</p>
+          <form>
+            <input type="text" name="email" placeholder="Enter Email">
+            <button type="submit" name="button">Submeter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="main-footer">
+    <div class="container">
+      <div class="row center-xs center-sm center-md center-lg">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <p>Copyright &copy; 2020 | Interchains</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

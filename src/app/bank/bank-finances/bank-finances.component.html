@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BanCom | Relatorio</title>
+    <head>
+      <meta charset="utf-8">
+      <title>BanCo</title>
+    </head>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="main-header">
+      <div class="container">
+        <div class="row end-sm end-md end-lg center-xs middle-xs middle-sm middle-md middle-lg">
+          <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+            <h2><span class="primary-text">Ban</span>Com</h2>
+          </div>
+          <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+            <nav id="navbar">
+              <ul>
+                <li><a href="../../welcome/" routerlink="/welcome">Portal</a></li>
+                <li><a  href="../bank-welcome/" routerlink="/bank-welcome">Principal</a></li>
+                <li class="current"><a href="../bank-finances/" routerlink="/bank-finances">Relatório</a></li>
+                <li><a href="../bank-history/" routerlink="/bank-history">Histórico</a></li>
+                <li><a href="../bank-contact/" routerlink="/bank-contact">Contrato </a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SUBHEADER -->
+    <!-- <section id="subheader">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>About Us</h1>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- MAIN PAGE -->
+    <section id="info">
+    
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+              <h2 class="center-block">Lista Completa</h2>
+          </div>
+      </div>
+      <div class="row" style="margin-top: 5px;">
+          <div class="col-md-12 style" style="text-align: center">
+              <table class="table table-bordered table-sm table-striped table-light table-hover">
+                  <thead class="thead-light">
+                      <tr>
+                          <th>Renavam</th>
+                          <th>Placa</th>
+                          <th>Contrato</th>
+                          <th>Final do Contrato</th>
+                          <th>Valor Base</th>
+                          <th>Calculo</th>
+                          <th>Pedido Pagamento</th>
+                          <th>Realizar Pagamento</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let finances of service.list">
+                          <td routerLink="/bank-history/{{finances._id}}">{{ finances._id }}</td>
+                          <td routerLink="/bank-history/{{finances._id}}">{{ finances._placa }}</td>
+                          <td routerLink="/bank-history/{{finances._id}}">{{ finances._contrato }}</td>
+                          <td routerLink="/bank-history/{{finances._id}}">{{ finances._datafim }}</td>
+                          
+                          <td routerLink="/bank-history/{{finances._id}}">{{ finances._valor }}</td>
+                          <td class="text-danger" routerLink="/bank-history/{{finances._id}}">{{ calculoFinanciamento(finances) | number : '1.2' }}</td>
+                          <td routerLink="/bank-history/{{finances._id}}">{{ finances._datasinistro }}</td>
+                          <td><button (click)="realizarPagamento(finances)" class="btn btn-sm btn-outline-info">P</button></td>
+                        </tr>
+                                             
+                  </tbody>
+              </table>
+          </div>
+      </div>
+   
+        <!-- <div class="row center-xs center-sm center-md center-lg">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2><span class="primary-text">Who</span> We Are</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <hr>
+            <h2><span class="primary-text">What</span> We Do</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+ <!-- COMPANY -->
+ <section id="company">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <h4>Contato</h4>
+        <ul>
+          <li><i class="fa fa-phone"></i> (21) 3251-1789 </li>
+          <li><i class="fa fa-envelope"></i> contato@interchains.et</li>
+          <li><i class="fa fa-map"></i> Rua Funchal 538, São Paulo SP</li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <h4>Sobre Nos</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <h4>Newsletter</h4>
+        <p>Lorem ipsum dolor sit amet</p>
+        <form>
+          <input type="text" name="email" placeholder="Enter Email">
+          <button type="submit" name="button">Submeter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="main-footer">
+  <div class="container">
+    <div class="row center-xs center-sm center-md center-lg">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p>Copyright &copy; 2020 | Interchains</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

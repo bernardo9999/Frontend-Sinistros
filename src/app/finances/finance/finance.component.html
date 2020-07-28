@@ -1,0 +1,26 @@
+<div class="container box-container2">
+    <h3 class="display-7 text-center">Registrar/ Atualizar</h3>
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="form-group">
+            <label>Renavam</label>
+            <input name="id" #id="ngModel" [(ngModel)]="service.formData._id" class="form-control" required>
+            <div class="validation-error" *ngIf="id.invalid && id.touched">Este campo é mandatório.</div>
+        </div>
+        <div class="form-group">
+            <label>Multas</label>
+            <input name="multas" #multas="ngModel" [(ngModel)]="service.formData._multas" class="form-control" required>
+            <div class="validation-error" *ngIf="multas.invalid && multas.touched">Este campo é mandatório.</div>
+        </div>
+    
+        <div class="form-group">
+            <label>Financiamento</label>
+            <input name="valor" #valor="ngModel" [(ngModel)]="service.formData._valor" class="form-control" required>
+            <div class="validation-error" *ngIf="valor.invalid && valor.touched">Este campo é mandatório.</div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">CONFIRMAR</button>
+        </div>
+    
+    </form>
+    <div>

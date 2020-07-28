@@ -1,0 +1,30 @@
+
+<div class="container box-container2">
+<table class="table table-bordered table-sm  table-striped table-hover table-light" style="text-align: center; margin-top: 0px;">
+    <div class="row" style="margin-top: 0px; margin-left:0px;">
+        <div class="col-md-12" style="text-align: center">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Renavam</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Cor</th>
+                    <th scope="col">Proprietario</th>
+                    <th scope="col">Apagar</th>
+                </tr>
+            </thead>
+            <tr *ngFor="let car of service.list">
+                <td (click)="populateForm(car)">[{{car._id}}]</td>
+                <td (click)="populateForm(car)">{{car._placa}}</td>
+                <td (click)="populateForm(car)">{{car._marca}}</td>
+                <td (click)="populateForm(car)">{{car._modelo}}</td>
+                <td (click)="populateForm(car)">{{car._cor}}</td>
+                <td (click)="populateForm(car)">{{car._proprietario}}</td>
+                <td><button (click)="onDelete(car._id)" class="btn btn-sm btn-outline-danger">X</button>
+                </td>
+            </tr>
+        </div>
+    </div>
+</table>
+</div>

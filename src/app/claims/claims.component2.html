@@ -1,0 +1,100 @@
+<app-layout></app-layout>
+
+
+<section class="banner2-img">
+  <div class="container box-container" *ngIf="!dataRetorno.car">
+    <div class="row">
+      <div class="col-md-12" style="text-align: center;">
+        <h2 class="center-block">Informe de Sinistro</h2>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+      <div class="col-md-4" style="text-align: center;">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Renavam</label>
+          <br><br>
+          <input type="text" class="form-control" placeholder="Informe o Renavam" [(ngModel)]="veiculo.id">
+        </div>
+      </div>
+      <div class="col-md-4" style="text-align: center;">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Apólice/ Código Sinistro</label>
+          <br><br>
+          <input type="text" class="form-control" placeholder="Informe o identificador" [(ngModel)]="veiculo.sinistro">
+        </div>
+      </div>
+      <div class="col-md-4" style="text-align: center;">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Ocorrência</label>
+          <br><br>
+          <select class="form-control" [(ngModel)]="veiculo.ocorrencia">
+            <option value="COLISÃO">Colisão</option>
+            <option value="ROUBO">Roubo</option>
+          </select>
+        </div>
+      </div>
+    </div>
+      <br>.
+
+    
+    <div class="col-md-12" style="text-align: center;">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Descrição</label>
+        <br><br>
+        <textarea type="text" class="form-control" placeholder="Descreva a ocorrência" [(ngModel)]="veiculo.descricao"
+          rows="6">
+          </textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 15px;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6" style="text-align: center;">
+      <button type="submit" class="btn" (click)="postClaim()">ENVIAR SINISTRO</button>
+    </div>
+  </div>
+  </div>
+  <div class="container box-container" *ngIf="dataRetorno.car">
+    <div class="row">
+      <div class="col-md-12" style="text-align: center;">
+        <h2 class="center-block">RETORNO DO SINISTRO</h2>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+      <div class="col-md-4">
+        <label for="exampleInputEmail1">Renavam</label>
+        <div class="input-fake">{{ dataRetorno.car._id }}</div>
+      </div>
+      <div class="col-md-4">
+        <label for="exampleInputEmail1">Marca</label>
+        <div class="input-fake">{{ dataRetorno.car._marca }}</div>
+      </div>
+      <div class="col-md-4">
+        <label for="exampleInputEmail1">Modelo</label>
+        <div class="input-fake">{{ dataRetorno.car._modelo }}</div>
+      </div>
+      <div class="col-md-6">
+        <label for="exampleInputEmail1">Proprietário</label>
+        <div class="input-fake">{{ dataRetorno.car._proprietario }}</div>
+      </div>
+      <div class="col-md-6">
+        <label for="exampleInputEmail1">Cor</label>
+        <div class="input-fake">{{ dataRetorno.car._cor }}</div>
+      </div>
+      <div class="col-md-6">
+        <label for="exampleInputEmail1">PAGOU FINANCIAMENTO?</label>
+        <div class="input-fake">{{ (dataRetorno.financiamento) ? 'SIM' : 'NÃO' }}</div>
+      </div>
+      <div class="col-md-6">
+        <label for="exampleInputEmail1">PAGOU MULTA?</label>
+        <div class="input-fake">{{ (dataRetorno.multa) ? 'SIM' : 'NÃO' }}</div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 15px;">
+      <div class="col-md-3"></div>
+      <div class="col-md-6" style="text-align: center;">
+        <button type="submit" class="btn" (click)="newClaim()">NOVO SINISTRO</button>
+      </div>
+    </div>
+  </div>
+</section>

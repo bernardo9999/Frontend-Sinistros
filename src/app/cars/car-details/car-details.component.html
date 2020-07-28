@@ -1,0 +1,96 @@
+<app-layout></app-layout>
+
+<section class="banner6-img">
+    <div class="container box-container2">
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-md-12">
+                <h3 class="center">Detalhes do Carro</h3>
+                <table class="table table-bordered table-sm table-striped table-dark table-hover">
+                    <thead class="thead-dark" style="text-align: center;">
+                        <tr>
+                            <th>Renavam</th>
+                            <th>Placa</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Proprietário</th>
+                            <th>Cor</th>
+                            <th>Alienado</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align: center;">
+                        <tr routerLink="/history/{{dataRetorno._id}}">
+                            <td>{{ dataRetorno._id }}</td>
+                            <td>{{ dataRetorno._placa }}</td>
+                            <td>{{ dataRetorno._marca }}</td>
+                            <td>{{ dataRetorno._modelo }}</td>
+                            <td>{{ dataRetorno._proprietario }}</td>
+                            <td>{{ dataRetorno._cor }}</td>
+                            <td>{{ (dataRetorno._alienado) ? 'SIM' : 'NÃO' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="row" style="margin-top: 10px;">
+            <h3 class="center-block">Detalhes do Sinistros</h3>
+            <div class="col-md-12">
+                <table class="table table-bordered table-sm table-striped table-dark table-hover">
+                    <thead class="thead-dark" style="text-align: center;">
+                        <tr>
+                            <th>Sinistro</th>
+                            <th>Ocorrência</th>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align: center;">
+                        <tr *ngFor= "let sinistros of dataRetorno._sinistros" routerLink="/history/{{dataRetorno._id}}">
+                            <td>{{ sinistros.sinistro }}</td>
+                            <td>{{ sinistros.ocorrencia }}</td>
+                            <td>{{ sinistros.dataocorrencia }}</td>
+                            <td>{{ sinistros.descricao }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+
+        <div class="row" style="margin-top: 10px;">
+            <h3 class="center-block">Detalhes de Financiamento</h3>
+            <div class="col-md-12">
+                <table class="table table-bordered table-sm table-striped table-dark table-hover">
+                    <thead class="thead-dark" style="text-align: center;">
+                        <tr>
+                            <th>Mutas</th>
+                            <th>Financiamento</th>
+                            <th>Data de Atual</th>
+                            <th>Data de Término</th>
+                            <th>Cálculo Dívida</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align: center;">
+                        <tr routerLink="/history/{{dataRetorno._id}}">
+                            <td>{{ (multas) ? (multas | number : '1.2') : 'Sem Registro' }}</td>
+                            <td>{{ valor | number : '1.2' }}</td>
+                            <td>{{ dataHoje }}</td>
+                            <td>{{ (datafim) ? (datafim) : 'Sem Registro' }}</td>
+                            <th class="text-danger">{{ (calculo) ? (calculo | number : '1.2') : 'Sem Registro'  }}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-md-12"></div>
+            <div class="col-md-6" style="text-align: center;">
+              <button type="submit" class="btn" (click)="realizarPago()">PAGO FINANCEIRO</button>
+            </div>
+            <div class="col-md-6" style="text-align: center;">
+                <button type="submit" class="btn"  (click)="realizarPagoMulta()">PAGO MULTA</button>
+              </div>
+        </div>
+    </div>
+</section>

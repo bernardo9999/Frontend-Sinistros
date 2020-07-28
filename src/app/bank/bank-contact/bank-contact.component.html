@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BanCom | Contratos</title>
+
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header id="main-header">
+    <div class="container">
+      <div class="row end-sm end-md end-lg center-xs middle-xs middle-sm middle-md middle-lg">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+          <h2><span class="primary-text">Ban</span>Com</h2>
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+          <nav id="navbar">
+            <ul>
+              <li><a href="../../welcome/" routerlink="/welcome">Portal</a></li>
+              <li><a href="../bank-welcome/" routerlink="/bank-welcome">Principal</a></li>
+              <li><a href="../bank-finances/" routerlink="/bank-finances">Relatório</a></li>
+              <li><a href="../bank-history/" routerlink="/bank-history">Histórico</a></li>
+              <li class="current"><a href="../bank-contact/" routerlink="/bank-contact">Contrato</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- MAIN PAGE -->
+  <section id="page" class="contact">
+    <div class="container">
+
+      <div class="row center-xs center-sm center-md center-lg">
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h2><span class="primary-text">Gestão</span> de Financiamento</h2>
+          <p>Insira a informação para adicionar um novo registro</p>
+          <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Renavam</label>
+                <input name="id" #id="ngModel" [(ngModel)]="service.formData._id" class="form-control" required>
+                <div class="validation-error" *ngIf="id.invalid && id.touched">Este campo é mandatório.</div>
+              </div>
+
+              <div class="form-group col-md-12">
+                <label>Placa</label>
+                <input name="placa" #placa="ngModel" [(ngModel)]="service.formData._placa" class="form-control"
+                  required>
+                <div class="validation-error" *ngIf="placa.invalid && placa.touched">Este campo é mandatório.</div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Contrato</label>
+                <input name="contrato" #contrato="ngModel" [(ngModel)]="service.formData._contrato" class="form-control"
+                  required>
+                <div class="validation-error" *ngIf="contrato.invalid && contrato.touched">Este campo é mandatório.
+                </div>
+              </div>
+
+              <div class="form-group col-md-12">
+                <label>Data de Encerramento</label>
+                <input name="datafim" #datafim="ngModel" [(ngModel)]="service.formData._datafim" class="form-control"
+                  required>
+                <div class="validation-error" *ngIf="datafim.invalid && datafim.touched">Este campo é mandatório.</div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Valor do Financiamento</label>
+                <input name="valor" #valor="ngModel" [(ngModel)]="service.formData._valor" class="form-control"
+                  required>
+                <div class="validation-error" *ngIf="valor.invalid && valor.touched">Este campo é mandatório.</div>
+              </div>
+            </div>
+<br>
+            <div class="form-row center-md center-lg">
+              <div class="form-group col-sm-12 center-lg center-md">
+                <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">CONFIRMAR</button>
+              </div>
+            </div>
+
+          </form>
+          <!-- <form>
+              <div>
+                <label for="name">Name</label><br>
+                <input type="text" name="name">
+              </div>
+              <div>
+                <label for="email">Email</label><br>
+                <input type="text" name="email">
+              </div>
+              <div>
+                <label for="message">Message</label><br>
+                <textarea name="message"></textarea>
+              </div>
+              <button type="submit" name="button">Submit</button>
+            </form> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- COMPANY -->
+ <section id="company">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <h4>Contato</h4>
+        <ul>
+          <li><i class="fa fa-phone"></i> (21) 3251-1789 </li>
+          <li><i class="fa fa-envelope"></i> contato@interchains.et</li>
+          <li><i class="fa fa-map"></i> Rua Funchal 538, São Paulo SP</li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <h4>Sobre Nos</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <h4>Newsletter</h4>
+        <p>Lorem ipsum dolor sit amet</p>
+        <form>
+          <input type="text" name="email" placeholder="Enter Email">
+          <button type="submit" name="button">Submeter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="main-footer">
+  <div class="container">
+    <div class="row center-xs center-sm center-md center-lg">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p>Copyright &copy; 2020 | Interchains</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
